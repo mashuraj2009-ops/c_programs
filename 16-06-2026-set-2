@@ -1,0 +1,147 @@
+//enum1
+
+#include<stdio.h>
+enum week {monday=1,tuesday=2,wednesday=3,thursday=4,friday=5,saturday=6,sunday=7};
+int main(){
+    enum week w;
+
+    w=wednesday;
+    printf("the value of wednesday is %d",w);
+    return 0;
+}
+
+
+//enum2
+
+#include<stdio.h>
+enum colours{RED=10,GREEN=20,BLUE=30};
+int main(){
+    enum colours c,d,e;
+    c=RED;
+    d=GREEN;
+    e=BLUE;
+    printf("integer values of the colours are %d,%d,%d",c,d,e);
+    return 0;
+}
+
+//directions
+
+#include<stdio.h>
+enum dir{NORTH=1,SOUTH,EAST,WEST};
+int main(){
+    int choice;
+
+    printf("Enter a choice :");
+    scanf("%d",&choice);
+
+    switch (choice) {
+        case NORTH:
+            printf("You chose NORTH\n");
+            break;
+        case SOUTH:
+            printf("You chose SOUTH\n");
+            break;
+        case EAST:
+            printf("You chose EAST\n");
+            break;
+        case WEST:
+    
+            printf("You chose WEST\n");
+            break;
+        default:
+            printf("Invalid choice!\n");
+            break;
+    }
+
+
+
+//months
+
+#include<stdio.h>
+enum months{JAN=10,FEB=20,MAR=30,APR=40,MAY=50,JUNE=60,JULY=70,AUG=80,SEPT=90,OCT=100,NOV=110,DEC=120};
+int main(){
+    enum months m;
+    m=DEC;
+    printf("the value of DEC is %d",m);
+
+    return 0;
+}
+
+
+//typedef_1
+
+#include<stdio.h>
+int main (){
+
+    typedef int number;
+
+    number total=100;
+    number integer=50;
+
+    printf("total : %d\n",total);
+    printf("integer : %d\n",integer);
+
+    return 0 ;
+}
+
+
+//typedef_2
+
+
+#include<stdio.h>
+int main(){
+    typedef float decimal;
+
+    decimal num1=14.4;
+    decimal num2=12.6;
+    decimal avg=(num1+num2)/2;
+
+    
+
+
+    printf("NUMBER 1 : %.2f\n",num1);
+    printf("NUMBER 2 : %.2f\n",num2);
+    printf("THE AVERAGE IS : %.2f\n",avg);
+
+    return 0 ;
+}
+
+
+//student_details
+
+
+#include <stdio.h>
+#include<string.h>
+ typedef struct {
+    char name [20];
+    int class;
+    char section [5];
+}student;
+
+
+int main(){
+    student a1;
+
+
+
+
+printf("enter name :\n");
+scanf("%s",&a1.name);
+printf("student name is : %s",a1.name);
+
+printf("enter class :\n");
+scanf("%d",&a1.class);
+printf("class is : %d",a1.class);
+
+
+printf("enter section :\n");
+scanf("%s",&a1.section);
+printf("section is : %s",a1.section);
+
+return 0 ;
+}
+
+
+
+
+
