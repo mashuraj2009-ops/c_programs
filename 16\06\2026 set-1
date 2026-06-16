@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+struct employee
+{
+    int id;
+    char name[20];
+    char department[20];   
+} a1;
+
+int main() {
+    printf("Enter employee id:\n");
+    // %d requires the '&' operator for primitive types like int
+    scanf("%d", &a1.id);
+    printf("Employee id is: %d \n\n", a1.id);
+
+    printf("Enter name:\n");
+    // Removed '&' because a1.name is already an address
+    scanf("%s", a1.name);
+    printf("Employee name is: %s \n\n", a1.name);
+
+    printf("Enter department:\n");
+    // Removed '&' here as well
+    scanf("%s", a1.department);
+    printf("The department is: %s \n", a1.department);
+
+    return 0;
+}
