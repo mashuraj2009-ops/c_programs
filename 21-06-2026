@@ -1,0 +1,295 @@
+1)
+
+#include<stdio.h>
+
+struct emp{
+    int id;
+    char name[20];
+    int salary;
+};
+
+int main(){
+    struct emp list[5];
+    int a=0;
+    int max=0; 
+
+    printf("---ENTER EMPLOYEE DETAILS---\n");
+    for(int i=0;i<5;i++){
+        printf("EMPLOYEE %d:\n",i+1);
+        
+        printf("ID :\n");
+        scanf("%d",&list[i].id);
+
+        printf("NAME :\n");
+        scanf("%s",list[i].name);
+
+        printf("SALARY :\n");
+        scanf("%d",&list[i].salary);
+    }
+
+    printf("---EMPLOYEE DETAILS---\n");
+    for(int i=0;i<5;i++){
+        printf("ID : %d\n",list[i].id);
+        printf("NAME : %s\n",list[i].name);
+        printf("SALARY :%d\n",list[i].salary);
+    }
+
+    
+    for(int i=0;i<5;i++){
+        if(list[i].salary > a){
+            a = list[i].salary;
+            max = i; 
+        }
+    }
+
+
+    printf("\n---EMPLOYEE WITH THE HIGHEST SALARY---\n");
+    printf("ID     : %d\n", list[max].id);
+    printf("NAME   : %s\n", list[max].name);
+    printf("SALARY : %d\n", list[max].salary);
+
+    return 0;
+}
+
+
+
+2)
+
+#include<stdio.h>
+
+int main(){
+
+    FILE *f; 
+    
+    f=fopen("C:/Users/SHURAJ/OneDrive/Desktop/students.txt","w");
+    fprintf(f,"hello world");
+    fclose(f);
+
+    return 0;
+}
+
+
+
+3)
+
+#include<stdio.h>
+
+int main(){
+    FILE *f;
+    char c;
+
+    f=fopen("C:/Users/SHURAJ/OneDrive/Desktop/students.txt","r");
+
+    while((c=fgetc(f))!=EOF){
+        printf("%c",c);
+    }
+    fclose(f);
+    return 0;
+}
+
+
+
+4)
+
+#include<stdio.h>
+
+int main(){
+    FILE *f;
+    char c[50];
+
+    printf("ENTER TEXT :\n");
+    fgets(c,sizeof(c),stdin);
+
+    f=fopen("C:/Users/SHURAJ/OneDrive/Desktop/students.txt","w");
+    fputs(c,f);
+    fclose(f);
+
+    return 0;
+}
+
+
+
+5)
+
+#include<stdio.h>
+
+int main(){
+    FILE *f;
+    char c;
+    int n=0;
+
+    f=fopen("C:/Users/SHURAJ/OneDrive/Desktop/students.txt","r");
+
+    while(c=fgetc(f)!=EOF){
+    n++;}
+
+    fclose(f);
+    printf("characters= %d",n);
+    return 0 ;
+
+
+}   
+
+
+
+6)
+
+#include <stdio.h>
+
+int main() {
+    int marks[5];
+    int sum = 0;
+    float average;
+
+    
+    printf("Enter marks of 5 students:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &marks[i]);
+    }
+
+    
+    for (int i = 0; i < 5; i++) {
+        sum += marks[i]; 
+    }
+
+    
+    average = sum / 5.0;
+
+    printf("Average Mark: %.2f\n", average);
+
+    return 0;
+}
+
+
+
+7)
+
+#include <stdio.h>
+
+int main() {
+    int qty[5] = {50, 22, 85, 40, 12};
+    int *ptr = qty; 
+
+    
+    printf("Original Quantities:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Product %d: %d\n", i + 1, *(ptr + i));
+    }
+
+    
+    for (int i = 0; i < 5; i++) {
+        *(ptr + i) = *(ptr + i) + 10;
+    }
+
+    
+    printf("\nUpdated Quantities (Added 10):\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Product %d: %d\n", i + 1, *(ptr + i));
+    }
+
+    return 0;
+}
+
+
+
+8)
+
+#include <stdio.h>
+#include <string.h>
+
+
+struct Customer {
+    char name[50];
+    char phone[15];
+};
+
+int main() {
+    
+    struct Customer list[5] = {
+        {"alice", "38312995517"},
+        {"bob", "4827653199"},
+        {"charlie", "5842002291"},
+        {"david", "9536789425"},
+        {"emma", "9854120074"}
+    };
+
+    char searchName[50];
+    printf("Enter name to search: ");
+    scanf("%s", searchName);
+
+    
+    for (int i = 0; i < 5; i++) {
+        if (strcmp(list[i].name, searchName) == 0) {
+            printf("Phone Number: %s\n", list[i].phone);
+            return 0; 
+        }
+    }
+
+
+    printf("Not found.\n");
+
+    return 0;
+}
+
+
+
+9)
+
+#include <stdio.h>
+
+
+struct Product {
+    char name[50];
+    float price;
+};
+
+int main() {
+    
+    struct Product item[3] = {
+        {"Milk", 62},
+        {"Bread", 60},
+        {"Eggs", 7.5}
+    };
+
+    float totalBill = 0;
+
+    
+    printf("--- Shopping Bill ---\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%s: %.2f\n", item[i].name, item[i].price);
+        totalBill += item[i].price; 
+    }
+
+
+    printf("---------------------\n");
+    printf("Total Bill: %.2f\n", totalBill);
+
+    return 0;
+}
+
+
+
+10)#include <stdio.h>
+
+int main() {
+    float deposits[5];
+    float sum = 0;
+
+    printf("Enter 5 ATM deposit amounts (in Rupees):\n");
+    
+    
+    for (int i = 0; i < 5; i++) {
+        printf("Transaction %d: Rs. ", i + 1);
+        scanf("%f", &deposits[i]);
+    }
+
+    
+    for (int i = 0; i < 5; i++) {
+        sum += deposits[i];
+    }
+
+    
+    printf("\nTotal Amount Deposited: Rs. %.2f\n", sum);
+
+    return 0;
+}
